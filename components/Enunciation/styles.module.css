@@ -1,0 +1,8 @@
+.enunciation {
+  display: flex;
+}
+
+.text {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
