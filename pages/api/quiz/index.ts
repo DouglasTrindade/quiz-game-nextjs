@@ -1,9 +1,9 @@
-import shuffle from "../../../functions/arrays";
+import Shuffle from "../../../functions/arrays";
 import questions from "../questions-base";
 
-const quiz = (req, res) => {
+const Quiz = (req, res) => {
   const ids = questions.map(question => question.id)
-  res.status(200).json(shuffle(ids))
+  res.status(200).json(Shuffle(ids))
 }
 
-export default quiz
+export default Quiz

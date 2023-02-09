@@ -22,7 +22,6 @@ const Quiz = (props: QuizProps) => {
       {props.question ? 
         <Question 
           value={props.question}
-          answerTime={6}
           answerProvided={answerProvided}
           timeIsOver={props.nextStep}
         /> : false

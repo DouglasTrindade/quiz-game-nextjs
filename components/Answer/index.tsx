@@ -12,36 +12,34 @@ interface AnswerProps {
 
 const Answer = (props:  AnswerProps) => {
   const answer = props.value
+  const answerRevealed = answer.revealed ? styles.answerRevealed : ''
   
   return (
     <div className={styles.answer}
       onClick={() => props.answerProvided(props.indice)}>
-      <div className={styles.answerContent}>
-        {!answer.revealed ? (
-          <div className={styles.front}>
-            <div className={styles.letter}
-              style={{ backgroundColor: props.bgLetterColor }}>
-              {props.letter}
-            </div>
-            <div className={styles.value}>
-              {answer.value}
-            </div>
+      <div className={`${answerRevealed} ${styles.answerContent}`}>
+        <div className={styles.front}>
+          <div className={styles.letter}
+            style={{ backgroundColor: props.bgLetterColor }}>
+            {props.letter}
           </div>
-        ) : (
-          <div className={styles.verse}>
-            {answer.such ? (
-            <div className={styles.such}>
-              <div>A resposta certa é...</div>
-              <div className={styles.value}>{answer.value}</div>
-            </div>
-            ) : (
-            <div className={styles.wrong}>
-              <div>A resposta informada está errada...</div>
-              <div className={styles.value}>{answer.value}</div>
-            </div>
-          )}
+          <div className={styles.value}>
+            {answer.value}
+          </div>
+        </div>
+        <div className={styles.verse}>
+          {answer.such ? (
+          <div className={styles.such}>
+            <div>A resposta certa é...</div>
+            <div className={styles.value}>{answer.value}</div>
+          </div>
+          ) : (
+          <div className={styles.wrong}>
+            <div>A resposta informada está errada...</div>
+            <div className={styles.value}>{answer.value}</div>
           </div>
         )}
+        </div>
       </div>
     </div>
   )

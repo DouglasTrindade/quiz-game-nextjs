@@ -1,6 +1,6 @@
 import questions from "../questions-base";
 
-export default function handler(req, res) {
+const Handler = (req, res) => {
   const selectedId = +req.query.id
 
   const  uniqueQuestion = questions.filter(question => question.id === selectedId)
@@ -12,3 +12,5 @@ export default function handler(req, res) {
     res.status(204).send()
   }
 }
+
+export default Handler

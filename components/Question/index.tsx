@@ -25,7 +25,7 @@ const Question = (props: QuestionProps) => {
       <Enunciation text={question.enunciation} />
       <Timer
         key={question.id}
-        duration={6} 
+        duration={10} 
         timeIsOver={props.timeIsOver}
       />
       {question.answers.map((answer, i) => {
