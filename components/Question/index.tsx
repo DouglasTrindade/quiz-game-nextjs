@@ -23,11 +23,15 @@ const Question = (props: QuestionProps) => {
   return (
     <div className={styles.question}>
       <Enunciation text={question.enunciation} />
-      <Timer duration={10} timeIsOver={props.timeIsOver} />
+      <Timer
+        key={question.id}
+        duration={6} 
+        timeIsOver={props.timeIsOver}
+      />
       {question.answers.map((answer, i) => {
         return ( 
           <Answer
-            key={`${i}`}
+            key={`${question.id} - ${i}`}
             value={answer}
             indice={i}
             letter={letters[i].value}

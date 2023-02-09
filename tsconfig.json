@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "plugins" : [{ 
+      "name" : " typescript-plugin-css-modules "
+    }],
     "target": "es6",
     "lib": [
       "dom",
@@ -8,7 +11,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,

@@ -33,6 +33,15 @@ export default class ModelAnswer {
     return new ModelAnswer(this.#value, this.#such, true)
   }
 
+  // const resp = new ModelAnswer(...)
+  // resp.metodoDeInstancia()
+
+  // ModelAnswer.metodoStatic
+
+  static createUsingObject(obj: ModelAnswer): ModelAnswer {
+    return new ModelAnswer(obj.value, obj.such, obj.revealed)
+  }
+
   toObject() {
     return {
       value: this.#value,

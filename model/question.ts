@@ -2,9 +2,6 @@ import shuffle from "../functions/arrays";
 import ModelAnswer from "./answer";
 
 export default class ModelQuestion {
-  answerWith(indice: number): import("react").SetStateAction<ModelQuestion> {
-    throw new Error("Method not implemented.");
-  }
   #id: number
   #enunciation: string
   #answers: ModelAnswer[]
@@ -43,8 +40,8 @@ export default class ModelQuestion {
     for(let answer of this.#answers) {
       if(answer.revealed) return true
     }
-
     return false
+    
   }
 
   withAnswer = (indice: number): ModelQuestion => {
@@ -60,6 +57,11 @@ export default class ModelQuestion {
   answersShuffle(): ModelQuestion {
     let shuffledAnswers = shuffle(this.#answers)
     return new ModelQuestion(this.#id, this.#enunciation, shuffledAnswers, this.#hit)
+  }
+
+  static createUsingObject(obj: ModelQuestion): ModelQuestion {
+    const answers = obj.answers.map(resp => ModelAnswer.createUsingObject(resp))
+    return new ModelQuestion(obj.id, obj.enunciation, answers, obj.hit)
   }
 
   toObject() {

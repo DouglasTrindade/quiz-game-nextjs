@@ -13,7 +13,7 @@ interface QuizProps {
 const Quiz = (props: QuizProps) => {
   const answerProvided = (indice: number) => {
     if (props.question.notAnswered) {
-      props.answerQuestion(props.question.answerWith(indice))
+      props.answerQuestion(props.question.withAnswer(indice))
     }
   } 
 
